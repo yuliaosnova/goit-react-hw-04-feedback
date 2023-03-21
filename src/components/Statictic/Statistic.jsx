@@ -3,7 +3,7 @@ import React from 'react';
 import css from './Statistic.module.css';
 
 const Statistic = ({ state, total, persentage }) => {
-  const { good, neutral, bad } = state;
+//   const { good, neutral, bad } = state;
 
   return (
     <>
@@ -11,15 +11,15 @@ const Statistic = ({ state, total, persentage }) => {
       <ul className={css.list}>
         <li className={css.item}>
           <span className="label">Good: </span>
-          <span className="amount">{good}</span>
+          <span className="amount">{state[0]}</span>
         </li>
         <li className={css.item}>
           <span className="label">Neutral: </span>
-          <span className="amount">{neutral}</span>
+          <span className="amount">{state[1]}</span>
         </li>
         <li className={css.item}>
           <span className="label">Bad: </span>
-          <span className="amount">{bad}</span>
+          <span className="amount">{state[2]}</span>
         </li>
         <li className={css.item}>
           <span className="label">Total: </span>
@@ -36,11 +36,7 @@ const Statistic = ({ state, total, persentage }) => {
 
 
 Statistic.propTypes = {
-	state: PropTypes.shape({
-		good: PropTypes.number.isRequired,
-		neutral: PropTypes.number.isRequired,
-		bad: PropTypes.number.isRequired,
-	}),
+	state: PropTypes.array.isRequired,
 	total: PropTypes.number.isRequired,
 	persentage: PropTypes.number.isRequired,
  };
